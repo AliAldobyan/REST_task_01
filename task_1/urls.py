@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from flights import views as api_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/flights/', api_views.FlightList.as_view(), name='flights-list'),
+    path('api/bookings/', api_views.BookingList.as_view(), name='bookings-list'),
 ]
